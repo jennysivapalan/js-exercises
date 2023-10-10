@@ -12,12 +12,12 @@ export function getBusNumbers(people) {
 	if (people === undefined) throw new Error('people is required');
 	const numberOfBuses = people / 40
 	return Math.ceil(numberOfBuses);
-	
 }
 
 export function countSheep(arr) {
 	if (arr === undefined) throw new Error('arr is required');
-	// Your code here!
+	const numberOfSheep = arr.filter(animal => animal === "sheep")
+	return numberOfSheep.length;
 }
 
 export function hasMPostCode(person) {
