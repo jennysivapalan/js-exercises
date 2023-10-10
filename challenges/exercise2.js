@@ -5,7 +5,15 @@ export function getSquares(nums) {
 
 export function camelCaseWords(words) {
 	if (words === undefined) throw new Error('words is required');
-	// Your code here!
+	const camelCaseWord = [];
+	for (let i = 0; i < words.length; i++) {
+		const word = words[i];
+		if(i == 0) camelCaseWord.push(word);
+		else {
+			camelCaseWord.push(word[0].toUpperCase() + word.substring(1));
+		}
+	}
+	return camelCaseWord.join('');
 }
 
 export function getTotalSubjects(people) {
