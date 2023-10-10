@@ -1,10 +1,6 @@
 export function getSquares(nums) {
 	if (nums === undefined) throw new Error('nums is required');
-	const squareNums = [];
-	for(let i = 0; i < nums.length; i++) {
-		squareNums.push(Math.pow(nums[i], 2));
-	}
-	return squareNums;
+	return nums.map(number => Math.pow(number, 2));
 }
 
 export function camelCaseWords(words) {
