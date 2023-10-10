@@ -11,12 +11,12 @@ export function findNamesBeginningWith(names, char) {
 
 export function findVerbs(words) {
 	if (!words) throw new Error('words is required');
-	return words.filter(word => word.startsWith('to '))
+	return words.filter(word => word.startsWith('to '));
 }
 
 export function getIntegers(nums) {
 	if (!nums) throw new Error('nums is required');
-	return nums.filter(num => Number.isInteger(num))
+	return nums.filter(num => Number.isInteger(num));
 }
 
 export function getCities(users) {
