@@ -1,6 +1,10 @@
 export function findSmallNums(nums) {
 	if (!nums) throw new Error('nums is required');
-	return nums.filter(num => num < 1);
+	const numsLessThan1 = [];
+	for(let i =0; i < nums.length; i++) {
+		if (nums[i] < 1) numsLessThan1.push(nums[i]);
+	}
+	return numsLessThan1
 }
 
 export function findNamesBeginningWith(names, char) {
