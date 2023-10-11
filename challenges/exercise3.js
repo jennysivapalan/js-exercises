@@ -37,7 +37,11 @@ export function getIntegers(nums) {
 
 export function getCities(users) {
 	if (!users) throw new Error('users is required');
-	return users.map(user => user.data.city.displayName);
+	const cities = [];
+	for(let i = 0; i < users.length; i++) {
+		cities.push(users[i].data.city.displayName)
+	}
+	return cities;
 }
 
 export function getSquareRoots(nums) {
