@@ -29,22 +29,18 @@ export function getIntegers(nums) {
 
 export function getCities(users) {
   if (!users) throw new Error("users is required");
-  const cities = [];
-  users.forEach((user) => {
-    cities.push(user.data.city.displayName);
+  return users.map(function (user) {
+    return user.data.city.displayName;
   });
-  return cities;
 }
 
 export function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  const squareRootNums = [];
-  nums.forEach((num) => {
+  return nums.map(function (num) {
     const sqRootNum = Math.sqrt(num);
-    if (sqRootNum - Math.floor(sqRootNum) === 0) squareRootNums.push(sqRootNum);
-    else squareRootNums.push(parseFloat(sqRootNum.toFixed(2)));
+    if (sqRootNum - Math.floor(sqRootNum) === 0) return sqRootNum;
+    else return parseFloat(sqRootNum.toFixed(2));
   });
-  return squareRootNums;
 }
 
 export function findSentencesContaining(sentences, str) {
@@ -57,9 +53,8 @@ export function findSentencesContaining(sentences, str) {
 
 export function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  const longestSide = [];
-  triangles.forEach((triangle) => {
-    longestSide.push(Math.max(...triangle));
+
+  return triangles.map(function (triangle) {
+    return Math.max(...triangle);
   });
-  return longestSide;
 }
