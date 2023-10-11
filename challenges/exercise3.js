@@ -1,38 +1,30 @@
 export function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  const numsLessThan1 = [];
-  nums.forEach((nums) => {
-    if (nums < 1) numsLessThan1.push(nums);
+  return nums.filter(function (num) {
+    return num < 1;
   });
-  return numsLessThan1;
 }
 
 export function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  const namesStartingWithChar = [];
-  names.forEach((name) => {
-    if (name.startsWith(char)) namesStartingWithChar.push(name);
+  return names.filter(function (name) {
+    return name.startsWith(char);
   });
-  return namesStartingWithChar;
 }
 
 export function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  const verbWords = [];
-  words.forEach((word) => {
-    if (word.startsWith("to ")) verbWords.push(word);
+  return words.filter(function (word) {
+    return word.startsWith("to ");
   });
-  return verbWords;
 }
 
 export function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  const integerNumbers = [];
-  nums.forEach((num) => {
-    if (Number.isInteger(num)) integerNumbers.push(num);
+  return nums.filter(function (num) {
+    return Number.isInteger(num);
   });
-  return integerNumbers;
 }
 
 export function getCities(users) {
@@ -58,12 +50,9 @@ export function getSquareRoots(nums) {
 export function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  const senstancesContainingStr = [];
-  sentences.forEach((sentence) => {
-    if (sentence.toLowerCase().includes(str.toLowerCase()))
-      senstancesContainingStr.push(sentence);
+  return sentences.filter(function (sentence) {
+    return sentence.toLowerCase().includes(str.toLowerCase());
   });
-  return senstancesContainingStr;
 }
 
 export function getLongestSides(triangles) {
