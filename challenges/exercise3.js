@@ -28,7 +28,11 @@ export function findVerbs(words) {
 
 export function getIntegers(nums) {
 	if (!nums) throw new Error('nums is required');
-	return nums.filter(num => Number.isInteger(num));
+	const integerNumbers = [];
+	for(let i = 0; i < nums.length; i++) {
+		if(Number.isInteger(nums[i])) integerNumbers.push(nums[i]);
+	}
+	return integerNumbers;
 }
 
 export function getCities(users) {
