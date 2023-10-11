@@ -10,7 +10,11 @@ export function findSmallNums(nums) {
 export function findNamesBeginningWith(names, char) {
 	if (!names) throw new Error('names is required');
 	if (!char) throw new Error('char is required');
-	return names.filter(name => name.startsWith(char));
+	const namesStartingWithChar = []
+	for(let i = 0; i < names.length; i++) {
+		if (names[i].startsWith(char)) namesStartingWithChar.push(names[i]);
+	}
+	return namesStartingWithChar;
 }
 
 export function findVerbs(words) {
