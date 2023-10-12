@@ -8,10 +8,9 @@ export const findNextNumber = (nums, n) => {
 
 export const count1sand0s = (str) => {
   if (str === undefined) throw new Error("str is required");
-  const stringArr = str.split("");
   let countZeros = 0;
   let countOnes = 0;
-  stringArr.map((character) => {
+  str.split("").map((character) => {
     if (character === "0") countZeros++;
     else if (character === "1") countOnes++;
   });
