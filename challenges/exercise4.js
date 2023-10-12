@@ -25,8 +25,16 @@ export const reverseNumber = (num) => {
 
 export const sumArrays = (arrs) => {
   if (arrs === undefined) throw new Error("arrs is required");
-  // Your code here!
+  const sumsInArray = arrs.map((array) =>
+    array.reduce((accumulator, num) => accumulator + num, 0)
+  );
+  return sumsInArray.reduce((accumulator, num) => accumulator + num, 0);
 };
+
+/** people.reduce(
+    (accumalator, person) => accumalator + person.subjects.length,
+    0
+  ); */
 
 export const arrShift = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
