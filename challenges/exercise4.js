@@ -31,11 +31,6 @@ export const sumArrays = (arrs) => {
   return sumsInArray.reduce((accumulator, num) => accumulator + num, 0);
 };
 
-/** people.reduce(
-    (accumalator, person) => accumalator + person.subjects.length,
-    0
-  ); */
-
 export const arrShift = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
   // Your code here!
