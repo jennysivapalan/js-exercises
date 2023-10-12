@@ -7,11 +7,16 @@
 /**
  * This function will receive an array of numbers and should return the sum
  * of any numbers which are a multiple of 3 or 5
- * @param {Array} arr
+ * @param {Array} array
  * @returns {Number}
  */
-export const sumMultiples = (arr) => {
-  if (arr === undefined) throw new Error("arr is required");
+export const sumMultiples = (array) => {
+  if (array === undefined) throw new Error("arr is required");
+  const sumOfArray = array.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
+  return sumOfArray % 5 === 0 || sumOfArray % 3 === 0 ? sumOfArray : null;
 };
 
 /**
