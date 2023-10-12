@@ -49,6 +49,16 @@ describe("count1sand0s", () => {
       1: 3,
       0: 1,
     });
+
+    expect(count1sand0s("324")).toEqual({
+      1: 0,
+      0: 0,
+    });
+
+    expect(count1sand0s("003010")).toEqual({
+      1: 1,
+      0: 4,
+    });
   });
 });
 
