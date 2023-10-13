@@ -2,6 +2,7 @@ import {
   sumMultiples,
   isValidDNA,
   getComplementaryDNA,
+  isItPrime,
 } from "../challenges/exercise5";
 
 describe("sumMultiples", () => {
@@ -50,5 +51,20 @@ describe("getComplementaryDNA", () => {
     expect(getComplementaryDNA("TA")).toBe("AT");
     expect(getComplementaryDNA("G")).toBe("C");
     expect(getComplementaryDNA("tGAc")).toBe("ACTG");
+  });
+});
+
+describe("isItPrime", () => {
+  test("returns true if the number is prime", () => {
+    expect(isItPrime(2)).toBe(true);
+    expect(isItPrime(7)).toBe(true);
+    expect(isItPrime(42299)).toBe(true);
+  });
+  test("returns false if the number is not prime", () => {
+    expect(isItPrime(0)).toBe(false);
+    expect(isItPrime(1)).toBe(false);
+    expect(isItPrime(45)).toBe(false);
+    expect(isItPrime(100)).toBe(false);
+    expect(isItPrime(200000000002)).toBe(false);
   });
 });
