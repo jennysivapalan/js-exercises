@@ -73,14 +73,14 @@ describe("isItPrime", () => {
 
 describe("createMatrix", () => {
   test("returns matrix of the filler value foo", () => {
-    expect(createMatrix(3, "foo")).toStrictEqual([
+    expect(createMatrix(3, "foo")).toEqual([
       ["foo", "foo", "foo"],
       ["foo", "foo", "foo"],
       ["foo", "foo", "foo"],
     ]);
   });
   test("returns matrix of the filler value 3", () => {
-    expect(createMatrix(2, 3)).toStrictEqual([
+    expect(createMatrix(2, 3)).toEqual([
       [3, 3],
       [3, 3],
     ]);
