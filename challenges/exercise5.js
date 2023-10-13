@@ -26,6 +26,11 @@ export const sumMultiples = (array) => {
  */
 export const isValidDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
+  const ALLOWED_CHARACTERS = ["C", "G", "T", "A"];
+  const sss = str
+    .split("")
+    .filter((character) => ALLOWED_CHARACTERS.includes(character));
+  return sss.length === str.length;
 };
 
 /**
