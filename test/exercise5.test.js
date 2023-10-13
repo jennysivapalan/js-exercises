@@ -4,6 +4,7 @@ import {
   getComplementaryDNA,
   isItPrime,
   createMatrix,
+  areWeCovered,
 } from "../challenges/exercise5";
 
 describe("sumMultiples", () => {
@@ -83,5 +84,36 @@ describe("createMatrix", () => {
       [3, 3],
       [3, 3],
     ]);
+  });
+});
+
+describe("areWeCovered", () => {
+  test("returns true if enough staff are scheduled to work on a given day", () => {
+    const staff = [
+      {
+        name: "Sally",
+        rota: ["Monday", "Tuesday", "Friday"],
+      },
+      {
+        name: "Pedro",
+        rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"],
+      },
+      { name: "Shelia", rota: ["Saturday", "Monday", "Wednesday", "Tuesday"] },
+    ];
+    expect(areWeCovered(staff, "Tuesday")).toBe(true);
+  });
+  test("returns false if not enough staff are scheduled to work on a given day", () => {
+    const staff = [
+      {
+        name: "Sally",
+        rota: ["Monday", "Tuesday", "Friday", "Monday", "Monday"],
+      },
+      {
+        name: "Pedro",
+        rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"],
+      },
+    ];
+    expect(areWeCovered(staff, "Friday")).toBe(false);
+    expect(areWeCovered(staff, "Monday")).toBe(false);
   });
 });
