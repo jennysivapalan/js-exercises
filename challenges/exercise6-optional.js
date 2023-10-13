@@ -27,10 +27,13 @@ export const sumDigits = (n) => {
 export const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
-  if (step === undefined)
-    console.log(
-      "FYI: Optional step parameter not provided. Remove this check once you've handled the optional step!"
-    );
+
+  const increment = step ? step : 1;
+  const range = [];
+  for (let i = start; i <= end; i = i + increment) {
+    range.push(i);
+  }
+  return range;
 };
 
 /**
