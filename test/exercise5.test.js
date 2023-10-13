@@ -30,6 +30,7 @@ describe("isValidDNA", () => {
     expect(isValidDNA("A")).toBe(true);
     expect(isValidDNA("CA")).toBe(true);
     expect(isValidDNA("GTAC")).toBe(true);
+    expect(isValidDNA("gTaC")).toBe(true);
   });
 
   test("returns false if the string is a not a valid DNA string", () => {
