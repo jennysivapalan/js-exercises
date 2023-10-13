@@ -76,13 +76,20 @@ export const isItPrime = (n) => {
  *   ["foo", "foo", "foo"],
  *   ["foo", "foo", "foo"]
  * ]
- * @param {Number} n
- * @param {Any} fill
+ * @param {Number} num
+ * @param {Any} fillParam
  * @returns {Array}
  */
-export const createMatrix = (n, fill) => {
-  if (n === undefined) throw new Error("n is required");
-  if (fill === undefined) throw new Error("fill is required");
+export const createMatrix = (num, fillParam) => {
+  if (num === undefined) throw new Error("n is required");
+  if (fillParam === undefined) throw new Error("fill is required");
+  const matrix = [];
+  for (let i = 0; i < num; i++) {
+    const newArray = new Array(num);
+    newArray.fill(fillParam, 0, num);
+    matrix.push(newArray);
+  }
+  return matrix;
 };
 
 /**

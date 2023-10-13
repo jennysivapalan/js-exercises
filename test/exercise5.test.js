@@ -3,6 +3,7 @@ import {
   isValidDNA,
   getComplementaryDNA,
   isItPrime,
+  createMatrix,
 } from "../challenges/exercise5";
 
 describe("sumMultiples", () => {
@@ -66,5 +67,21 @@ describe("isItPrime", () => {
     expect(isItPrime(45)).toBe(false);
     expect(isItPrime(100)).toBe(false);
     expect(isItPrime(200000000002)).toBe(false);
+  });
+});
+
+describe("createMatrix", () => {
+  test("returns matrix of the filler value foo", () => {
+    expect(createMatrix(3, "foo")).toStrictEqual([
+      ["foo", "foo", "foo"],
+      ["foo", "foo", "foo"],
+      ["foo", "foo", "foo"],
+    ]);
+  });
+  test("returns matrix of the filler value 3", () => {
+    expect(createMatrix(2, 3)).toStrictEqual([
+      [3, 3],
+      [3, 3],
+    ]);
   });
 });
