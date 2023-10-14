@@ -68,6 +68,49 @@ export const createRange = (start, end, step) => {
 export const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+
+  console.log("users " + users);
+  console.log("date " + date);
+  console.log("date typeof " + typeof date);
+
+  function getScreenTimeForGivenDate(user, date) {
+    console.log("user " + user.username);
+    console.log("screenTime " + user.screenTime);
+    console.log(
+      "screenTime 0" + user.screenTime(0).date + " " + user.screenTime(0).usage
+    );
+    const screenTimeForDayList = user.screenTime.filter((screenTime) => {
+      console.log(
+        "screenTime date and date comparison: " +
+          screenTime.date +
+          " " +
+          date +
+          " " +
+          screenTime.date ===
+          date
+      );
+      console.log(typeof screenTime.date);
+      console.log("screenTime usage" + screenTime.usage);
+
+      screenTime.date === date;
+    });
+    console.log("screenTimeForDayList " + screenTimeForDayList);
+    const socialMediaValues = Object.values(screenTimeForDayList);
+
+    console.log("socialMediaValues " + socialMediaValues);
+    console.log(socialMediaValues.map((v) => console.log("v " + v)));
+
+    const screenTimeForDay = socialMediaValues.reduce(
+      (accumulator, screenTime) => accumulator + screenTime,
+      0
+    );
+    return { name: user.name, screenTimeTotalForDay: screenTimeForDay };
+  }
+
+  const usersOnGivenDate = users.map((user) => {
+    console.log("username " + user.name);
+    const o = getScreenTimeForGivenDate(user, date);
+  });
 };
 
 /**
