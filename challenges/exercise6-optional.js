@@ -69,48 +69,35 @@ export const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
 
-  console.log("users " + users);
-  console.log("date " + date);
-  console.log("date typeof " + typeof date);
-
-  function getScreenTimeForGivenDate(user, date) {
-    console.log("user " + user.username);
-    console.log("screenTime " + user.screenTime);
-    console.log(
-      "screenTime 0" + user.screenTime(0).date + " " + user.screenTime(0).usage
+  //map over user and get usage for given date and add as object to user
+  const screenTimeOnDate = users.map((user) => {
+    const screenTimeForDate = user.screenTime.find(
+      (screenTime) => screenTime.date === date
     );
-    const screenTimeForDayList = user.screenTime.filter((screenTime) => {
-      console.log(
-        "screenTime date and date comparison: " +
-          screenTime.date +
-          " " +
-          date +
-          " " +
-          screenTime.date ===
-          date
-      );
-      console.log(typeof screenTime.date);
-      console.log("screenTime usage" + screenTime.usage);
-
-      screenTime.date === date;
-    });
-    console.log("screenTimeForDayList " + screenTimeForDayList);
-    const socialMediaValues = Object.values(screenTimeForDayList);
-
-    console.log("socialMediaValues " + socialMediaValues);
-    console.log(socialMediaValues.map((v) => console.log("v " + v)));
-
-    const screenTimeForDay = socialMediaValues.reduce(
-      (accumulator, screenTime) => accumulator + screenTime,
-      0
-    );
-    return { name: user.name, screenTimeTotalForDay: screenTimeForDay };
-  }
-
-  const usersOnGivenDate = users.map((user) => {
-    console.log("username " + user.name);
-    const o = getScreenTimeForGivenDate(user, date);
+    user.usageOnDate = screenTimeForDate.usage;
+    return user;
   });
+
+  //map over user and find the time usage on given date
+  const userTimeUsageOnDate = screenTimeOnDate.map((user) => {
+    const usage = user.usageOnDate;
+    let values = Object.values(usage);
+
+    const count = values.reduce((acc, current) => acc + current, 0);
+
+    user.timeUsageOnDate = count;
+    return user;
+  });
+
+  //filter users who are over the time limit on given date
+  const usersOverLimit = userTimeUsageOnDate.filter(
+    (user) => user.timeUsageOnDate > 100
+  );
+
+  //return the usernames
+  return usersOverLimit.map((user) => user.username);
+
+  //count usage and return if more than zero
 };
 
 /**
