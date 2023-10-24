@@ -69,18 +69,26 @@ export const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
 
-  //map over user and get usage for given date and add as object to user
-  const screenTimeOnDate = users.map((user) => {
-    const screenTimeForDate = user.screenTime.find(
+  //map over user and add property with usage if they were online on a date
+  users.map((user) => {
+    const screenTimeOnDate = user.screenTime.find(
       (screenTime) => screenTime.date === date
     );
-    user.usageOnDate = screenTimeForDate.usage;
+
+    if (screenTimeOnDate) {
+      user.onlinePrescenceOnDate = screenTimeOnDate.usage;
+    }
     return user;
   });
 
-  //map over user and find the time usage on given date
-  const userTimeUsageOnDate = screenTimeOnDate.map((user) => {
-    const usage = user.usageOnDate;
+  //filter list for users online on the date
+  const usersOnlineOnDate = users.filter(
+    (user) => user.onlinePrescenceOnDate !== undefined
+  );
+
+  //map over filtered list user and find the time usage on given date
+  const userTimeUsageOnDate = usersOnlineOnDate.map((user) => {
+    const usage = user.onlinePrescenceOnDate;
     let values = Object.values(usage);
 
     const count = values.reduce((acc, current) => acc + current, 0);
@@ -96,8 +104,6 @@ export const getScreentimeAlertList = (users, date) => {
 
   //return the usernames
   return usersOverLimit.map((user) => user.username);
-
-  //count usage and return if more than zero
 };
 
 /**

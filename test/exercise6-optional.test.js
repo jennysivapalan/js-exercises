@@ -45,6 +45,24 @@ describe("getScreentimeAlertList", () => {
         },
       ],
     },
+    {
+      username: "sam_j_1989",
+      name: "Sam Jones",
+      screenTime: [
+        {
+          date: "2019-06-11",
+          usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safarai: 10 },
+        },
+        {
+          date: "2019-06-13",
+          usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safarai: 16 },
+        },
+        {
+          date: "2019-06-14",
+          usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safarai: 31 },
+        },
+      ],
+    },
   ];
   expect(getScreentimeAlertList(users, "2019-05-04")).toEqual(["beth_1234"]);
 });
