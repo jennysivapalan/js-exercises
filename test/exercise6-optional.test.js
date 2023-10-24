@@ -21,7 +21,7 @@ describe("createRange", () => {
   });
 });
 describe("getScreentimeAlertList", () => {
-  test("returns the user who has more than 100 minutes of screentime for a given day", () => {});
+  test("returns users who has more than 100 minutes of screentime for a given day", () => {});
   const users = [
     {
       username: "beth_1234",
@@ -43,6 +43,10 @@ describe("getScreentimeAlertList", () => {
           date: "2019-05-04",
           usage: { twitter: 10, instagram: 56, facebook: 61 },
         },
+        {
+          date: "2019-06-11",
+          usage: { twitter: 10, instagram: 50, facebook: 87 },
+        },
       ],
     },
     {
@@ -51,7 +55,7 @@ describe("getScreentimeAlertList", () => {
       screenTime: [
         {
           date: "2019-06-11",
-          usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safarai: 10 },
+          usage: { mapMyRun: 0, whatsApp: 101, facebook: 0, safarai: 10 },
         },
         {
           date: "2019-06-13",
@@ -65,4 +69,8 @@ describe("getScreentimeAlertList", () => {
     },
   ];
   expect(getScreentimeAlertList(users, "2019-05-04")).toEqual(["beth_1234"]);
+  expect(getScreentimeAlertList(users, "2019-06-11")).toEqual([
+    "beth_1234",
+    "sam_j_1989",
+  ]);
 });
