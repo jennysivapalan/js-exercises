@@ -16,6 +16,12 @@ describe("findSmallNums", () => {
     expect(findSmallNums([100, 88])).toEqual([]);
     expect(findSmallNums([])).toEqual([]);
   });
+  test("returns an empty array if input values are invalid", () => {
+    expect(findSmallNums(["aaaa"])).toEqual([]);
+  });
+  test("ignores non valid inputs and returns numbers smaller than 1", () => {
+    expect(findSmallNums(["aaaa", 0.1, 99])).toEqual([0.1]);
+  });
 });
 
 describe("findNamesBeginningWith", () => {

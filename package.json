@@ -7,7 +7,7 @@
     "test": "jest",
     "eslint": "eslint ./",
     "start": "nodemon src/index.ts",
-    "dna-test": "jest test/valid-dna.test.ts --watchAll"
+    "ts-tests": "jest test/typescript-exercise.test.ts --watchAll"
   },
   "repository": {
     "type": "git",

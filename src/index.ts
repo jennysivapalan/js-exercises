@@ -1,2 +1,1 @@
-import { logDNA } from "./valid-dna";
-console.log(logDNA("C", "G"));
+console.log("Nothing to see in the index.js file");
